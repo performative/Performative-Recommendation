@@ -103,7 +103,7 @@ In our code we rely on a specific set of attributes and keywords and therefore c
 In order to avoid cases where the code cannot be run due to incompatibility, we have stored in the folder real_data_exp_files/yelp_data the version of the data that the project supports. 
 Because the data is very large and we rely on a very limited part of the data, we only stored the relevant information.
 The files restaurant_features.csv and restaurant_features_for_pred.csv were originally created by running the script real_data_exp_files/data_creation/restaurant_data_creation.py
-The script appears for reference but it cannot be run because the original input file is not huge and was not uploaded to git. 
+The script appears for reference but it cannot be run because the original input file is huge and was not uploaded to git. 
 Similarly the file real_data_exp_files/data_creation/user_review_creation.py
 Generates users_review_restaurant.json but cannot be run and is displayed for reference only. A zip file is provided instead:
 users_review_restaurant.zip
@@ -121,8 +121,8 @@ At the end of each round we simulate the strategic response of items to the trai
 'real_data_exp_files/yelp_data/strategic_data'.
 2. **Test stage:** <br />
 After running the first stage with few NDCG target we create file with the result. <br />
-This experiment get list of NDCG target and for each NDCG target load the models and the strategic responses from the previous stage and calculate strategic response. <br />
-At the end of the program run you can find in folder result you can find sub folder: <br />
+This experiment gets list of NDCG target and for each NDCG target load the models and the strategic responses from the previous stage and calculate strategic response. <br />
+at the end of the execution of the program you can find in folder result you can find sub folder: <br />
 k_{k}_alpha_{modle_kind} <br />
 where model_kind is strategic_model or non_strategic depends on regularization kind (see flag 'strategic_model'). <br />
 Inside this sub folder there is a json files with the results of this experiment. <br />
