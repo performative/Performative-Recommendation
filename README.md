@@ -28,7 +28,7 @@ The arguments for this experiment are:
     --ustd: The std of each feature in the ground truth user preferences vector (u*).
     --xstd: The std of each feature in the items featrure vector.
     -ne: Number of epoch to train the model.
-    --tau_sig: The sigmoid function temperature in eq 8.
+    --tau_sig: The sigmoid function temperature as described in section 3.1.
     --tau_div: The soft permutation matrix temperature for diversity calculation.
     --tau_ndcg: The soft permutation matrix temperature for NDCG calculation.
     --lr: The optimization learning rate. 
@@ -54,7 +54,7 @@ The arguments for this experiment are:
     --ustd: The std of each feature in the ground truth user preferences vector (u*).
     --xstd: The std of each feature in the items featrure vector.
     -ne: Number of epoch to train the model.
-    --tau_sig: The sigmoid function temperature in eq 8.
+    --tau_sig: The sigmoid function temperature as described in section 3.1.
     --tau_div: The soft permutation matrix temperature for diversity calculation.
     --tau_ndcg: The soft permutation matrix temperature for NDCG calculation.
     --lr: The optimization learning rate. 
@@ -81,7 +81,7 @@ The arguments for this experiment are:
     --xstd: The std of each feature in the items featrure vector.
     --time: The number of rounds to run the experiment.
     -ne: Number of epoch to train the model.
-    --tau_sig: The sigmoid function temperature in eq 8.
+    --tau_sig: The sigmoid function temperature as described in section 3.1.
     --tau_div: The soft permutation matrix temperature for diversity calculation.
     --tau_ndcg: The soft permutation matrix temperature for NDCG calculation.
     --lr: The optimization learning rate. 
@@ -101,19 +101,19 @@ The real experiment is based on parts of the data from <a href="https://www.yelp
 However, this dataset is dynamic and is updated by yelp. 
 In our code we rely on a specific set of attributes and keywords and therefore cannot support changes to the data structure and keywords that specify categories of restaurants.
 In order to avoid cases where the code cannot be run due to incompatibility, we have stored in the folder real_data_exp_files/yelp_data the version of the data that the project supports. 
-Because the data is very large and we rely on a very limited part of the data, we only stored the relevant information.
+Since the data is very large and we rely on a very limited part of the data, we only stored the relevant information.
 The files restaurant_features.csv and restaurant_features_for_pred.csv were originally created by running the script real_data_exp_files/data_creation/restaurant_data_creation.py
 The script appears for reference but it cannot be run because the original input file is huge and was not uploaded to git. 
 Similarly the file real_data_exp_files/data_creation/user_review_creation.py
-Generates users_review_restaurant.json but cannot be run and is displayed for reference only. A zip file is provided instead:
-users_review_restaurant.zip
-And in this file is users_review_restaurant.json. You must extract this file from the zip before running the experiments
+Generates users_review_restaurant.json but cannot be run and is displayed for reference only. A zip file is provided instead:<br />
+users_review_restaurant.zip <br />
+In this zip there is the file users_review_restaurant.json. You must extract this file from the zip before running the experiments
 After you unzipped users_review_restaurant.zip you have to run initialization.py that is located in real_data_exp_files
 Now you can run real_data_exp.py that in real_data_exp_files.
  
 This experiment has two stages: 
 1. **Simulate the dynamic process over the rounds:** <br />
- This stage includes training the models over the round and the items responses. <br />
+ This stage includes training the models and simulating items responses. <br />
 Given a target NDCG in each round we look for model that achieves NDCG that close to target NDCG. The model is saved in: <br />
 'real_data_exp_files/models_yelp/k_{k}_{alpha}_{ndcg_target}_{model_kind}' <br /> 
 where model_kind is strategic_model or non_strategic depends on regularization kind (see flag 'strategic_model'). 
@@ -127,7 +127,7 @@ k_{k}_alpha_{modle_kind} <br />
 where model_kind is strategic_model or non_strategic depends on regularization kind (see flag 'strategic_model'). <br />
 Inside this sub folder there is a json files with the results of this experiment. <br />
 Note that those files are numbered from start_time to 2*end_time. The results in the even times are those in the paper since they follow the definition in the paper for round. (section  2.2). <br />
-The odd result are interim results i.e items are change according to model from previous  round and model is tested on those changes without retraining.
+The odd result are interim results i.e items are change according to model from previous round and model is tested on those changes without retraining.
 
 The arguments for this experiment are:
 ```
@@ -143,7 +143,7 @@ The arguments for this experiment are:
     --batch_size: The batch size for training.
     --ndcg_div_lr: The optimization learning rate.
     -k: The number of items to include in NDCG and diversity calculation.
-    --tau_sig: The sigmoid function temperature in eq 8.
+    --tau_sig: The sigmoid function temperature as described in section 3.1.
     --tau_div: The soft permutation matrix temperature for diversity calculation.
     --tau_ndcg: The soft permutation matrix temperature for NDCG calculation.
     -a: Alpha is the scaling parameter that determines the intensity of stratgeic updates (equation 6).
